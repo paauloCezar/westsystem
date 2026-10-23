@@ -23,6 +23,35 @@ document.querySelectorAll(".js-whatsapp").forEach(function (botao) {
   botao.rel = "noopener";
 });
 
+// ---------- Formulário de feedback ----------
+// Monta a mensagem e abre o WhatsApp com tudo preenchido.
+const formFeedback = document.getElementById("form-feedback");
+const erroFeedback = document.getElementById("fb-erro");
+
+formFeedback.addEventListener("submit", function (evento) {
+  evento.preventDefault(); // não deixa a página recarregar
+
+  const notaMarcada = formFeedback.querySelector('input[name="nota"]:checked');
+  const nome = formFeedback.nome.value.trim();
+  const mensagem = formFeedback.mensagem.value.trim();
+
+  if (!notaMarcada || mensagem === "") {
+    erroFeedback.textContent = "Escolha uma nota e escreva o seu feedback antes de enviar.";
+    erroFeedback.hidden = false;
+    return;
+  }
+  erroFeedback.hidden = true;
+
+  const texto =
+    "Olá! Quero deixar um feedback sobre a WestSystem.\n" +
+    (nome ? "Nome: " + nome + "\n" : "") +
+    "Nota: " + notaMarcada.value + " de 5\n" +
+    "Feedback: " + mensagem;
+
+  const link = "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(texto);
+  window.open(link, "_blank", "noopener");
+});
+
 // ---------- 2. Ano do rodapé ----------
 document.getElementById("ano").textContent = new Date().getFullYear();
 

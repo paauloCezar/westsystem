@@ -39,6 +39,7 @@
         <a href="#servicos">O que fazemos</a>
         <a href="#automacao">Na prática</a>
         <a href="#como-trabalhamos">Como trabalhamos</a>
+        <a href="#feedback">Feedback</a>
         <a href="#perguntas">Perguntas</a>
         <a href="#" class="botao botao--pequeno js-whatsapp">Fale conosco</a>
       </nav>
@@ -46,6 +47,11 @@
   </header>
 
   <main>
+
+    <!-- Desenho da estrela, usado no formulário de feedback -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="estrela" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+    </svg>
 
     <!-- ============ 1. HERO ============ -->
     <section class="hero" id="inicio">
@@ -217,10 +223,49 @@
       </div>
     </section>
 
-    <!-- ============ 6. PERGUNTAS FREQUENTES ============ -->
-    <section class="secao" id="perguntas">
+    <!-- ============ 6. ENVIE SEU FEEDBACK ============ -->
+    <!-- Sem servidor: o formulário monta a mensagem e abre o WhatsApp (veja script.js) -->
+    <section class="secao" id="feedback">
       <div class="container container--estreito">
         <p class="secao__marca">// 05</p>
+        <h2 class="aparece">Envie seu feedback</h2>
+        <p class="secao__intro aparece">Já trabalhou com a gente ou tem uma sugestão? Conte como foi. Sua opinião nos ajuda a melhorar.</p>
+
+        <form class="feedback aparece" id="form-feedback" novalidate>
+          <fieldset class="feedback__campo">
+            <legend>Sua nota</legend>
+            <!-- as estrelas ficam na ordem 5 a 1 de propósito (o CSS inverte a exibição) -->
+            <div class="nota">
+              <input type="radio" name="nota" id="nota5" value="5"><label for="nota5" title="5 estrelas"><svg><use href="#estrela"/></svg><span class="so-leitor">5 estrelas</span></label>
+              <input type="radio" name="nota" id="nota4" value="4"><label for="nota4" title="4 estrelas"><svg><use href="#estrela"/></svg><span class="so-leitor">4 estrelas</span></label>
+              <input type="radio" name="nota" id="nota3" value="3"><label for="nota3" title="3 estrelas"><svg><use href="#estrela"/></svg><span class="so-leitor">3 estrelas</span></label>
+              <input type="radio" name="nota" id="nota2" value="2"><label for="nota2" title="2 estrelas"><svg><use href="#estrela"/></svg><span class="so-leitor">2 estrelas</span></label>
+              <input type="radio" name="nota" id="nota1" value="1"><label for="nota1" title="1 estrela"><svg><use href="#estrela"/></svg><span class="so-leitor">1 estrela</span></label>
+            </div>
+          </fieldset>
+
+          <div class="feedback__campo">
+            <label for="fb-nome">Seu nome <small>(opcional)</small></label>
+            <input type="text" id="fb-nome" name="nome" autocomplete="name" maxlength="60" placeholder="Como podemos te chamar?">
+          </div>
+
+          <div class="feedback__campo">
+            <label for="fb-mensagem">Seu feedback</label>
+            <textarea id="fb-mensagem" name="mensagem" rows="5" maxlength="600" placeholder="Conte o que você achou, o que gostou ou o que podemos melhorar."></textarea>
+          </div>
+
+          <p class="feedback__erro" id="fb-erro" role="alert" hidden></p>
+
+          <button type="submit" class="botao">Enviar pelo WhatsApp</button>
+          <p class="feedback__nota">Ao enviar, o WhatsApp abre com a sua mensagem pronta. É só confirmar o envio por lá.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 7. PERGUNTAS FREQUENTES ============ -->
+    <section class="secao secao--painel" id="perguntas">
+      <div class="container container--estreito">
+        <p class="secao__marca">// 06</p>
         <h2 class="aparece">Perguntas frequentes</h2>
 
         <details class="pergunta aparece">
