@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>WestSystem | Sites, automações e sistemas sob medida</title>
+  <meta name="description" content="A WestSystem cria sites, automações, sistemas e bots sob medida para o seu negócio, com linguagem simples e sem complicação.">
+  <meta name="theme-color" content="#070b14">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <!-- Avisa o CSS que o JavaScript está ligado (os efeitos de "aparecer" só valem com ele) -->
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+  <!-- Barra fina no topo que enche conforme você rola a página -->
+  <div class="progresso" aria-hidden="true"><div class="progresso__barra" id="progresso"></div></div>
+
+  <!-- ============ TOPO ============ -->
+  <header class="topo">
+    <div class="container topo__barra">
+      <a href="#inicio" class="logo" aria-label="WestSystem, voltar ao início">
+        <svg class="logo__marca" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="url(#grad)"/>
+          <path d="M6 9l4.5 14L16 13l5.5 10L26 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3b82f6"/>
+              <stop offset="1" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo__texto">West<strong>System</strong><span class="cursor">_</span></span>
+      </a>
+
+      <button class="menu-botao" id="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+
+      <nav class="menu" id="menu" aria-label="Menu principal">
+        <a href="#servicos">O que fazemos</a>
+        <a href="#automacao">Na prática</a>
+        <a href="#como-trabalhamos">Como trabalhamos</a>
+        <a href="#perguntas">Perguntas</a>
+        <a href="#" class="botao botao--pequeno js-whatsapp">Fale conosco</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" id="inicio">
+      <div class="container hero__grade">
+
+        <div class="hero__conteudo">
+          <p class="etiqueta"><span class="led"></span> Soluções digitais sob medida</p>
+          <h1>Você cuida do seu negócio. <span class="destaque">Nós cuidamos da tecnologia.</span></h1>
+          <p class="hero__texto">
+            Criamos sites, automações, sistemas e bots do jeito que o seu negócio precisa.
+            Sem termos complicados e sem você precisar entender de tecnologia.
+          </p>
+          <div class="hero__acoes">
+            <a href="#" class="botao js-whatsapp">Conversar no WhatsApp</a>
+            <a href="#servicos" class="botao botao--contorno">Ver o que fazemos</a>
+          </div>
+          <p class="hero__nota">A primeira conversa é sem compromisso.</p>
+        </div>
+
+        <!-- Painel de exemplo: as barras e o registro se mexem sozinhos (script.js) -->
+        <aside class="painel" aria-label="Exemplo visual de um sistema funcionando">
+          <div class="painel__topo">
+            <span class="painel__bolinhas"><i></i><i></i><i></i></span>
+            <span class="painel__titulo">painel de exemplo</span>
+            <span class="painel__status"><span class="led"></span> no ar</span>
+          </div>
+
+          <div class="painel__metricas">
+            <div class="metrica">
+              <div class="metrica__linha"><span>Atendimentos</span><b id="valor-1">72%</b></div>
+              <div class="metrica__trilho"><div class="metrica__barra" id="barra-1"></div></div>
+            </div>
+            <div class="metrica">
+              <div class="metrica__linha"><span>Tarefas automáticas</span><b id="valor-2">58%</b></div>
+              <div class="metrica__trilho"><div class="metrica__barra" id="barra-2"></div></div>
+            </div>
+            <div class="metrica">
+              <div class="metrica__linha"><span>Tempo economizado</span><b id="valor-3">86%</b></div>
+              <div class="metrica__trilho"><div class="metrica__barra" id="barra-3"></div></div>
+            </div>
+          </div>
+
+          <ul class="painel__log" id="log" aria-live="off"></ul>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ============ 2. O QUE FAZEMOS ============ -->
+    <section class="secao" id="servicos">
+      <div class="container">
+        <p class="secao__marca">// 01</p>
+        <h2 class="aparece">O que fazemos</h2>
+        <p class="secao__intro aparece">Se você tem uma ideia ou um problema que toma o seu tempo, é provável que a gente consiga resolver.</p>
+
+        <div class="cartoes">
+          <article class="cartao aparece">
+            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🌐</span><span class="led"></span></div>
+            <h3>Sites</h3>
+            <p>Páginas bonitas e rápidas, que funcionam bem no celular e apresentam o seu negócio para o mundo.</p>
+            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          </article>
+
+          <article class="cartao aparece">
+            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">⚙️</span><span class="led"></span></div>
+            <h3>Automações</h3>
+            <p>Tarefas repetitivas que passam a se fazer sozinhas: mensagens, planilhas, avisos e cadastros.</p>
+            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          </article>
+
+          <article class="cartao aparece">
+            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🧩</span><span class="led"></span></div>
+            <h3>Sistemas sob medida</h3>
+            <p>Um programa feito para o seu jeito de trabalhar, em vez de você se adaptar a um que não serve direito.</p>
+            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          </article>
+
+          <article class="cartao aparece">
+            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🤖</span><span class="led"></span></div>
+            <h3>Bots</h3>
+            <p>Assistentes que atendem e respondem seus clientes automaticamente, a qualquer hora.</p>
+            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          </article>
+
+          <article class="cartao aparece">
+            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🎯</span><span class="led"></span></div>
+            <h3>Precisão</h3>
+            <p>Cada detalhe é conferido e testado antes da entrega, para tudo funcionar certo desde o primeiro dia.</p>
+            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          </article>
+
+          <article class="cartao cartao--outros aparece">
+            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">💡</span><span class="led led--ambar"></span></div>
+            <h3>E outras ideias</h3>
+            <p>Não achou o que procura? Conte o que você precisa e vemos juntos se dá para fazer.</p>
+            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. AUTOMAÇÃO NA PRÁTICA ============ -->
+    <section class="secao secao--painel" id="automacao">
+      <div class="container">
+        <p class="secao__marca">// 02</p>
+        <h2 class="aparece">Uma automação na prática</h2>
+        <p class="secao__intro aparece">Um exemplo simples do que fazemos: um cliente faz um pedido e o resto acontece sozinho, sem você precisar mexer em nada.</p>
+
+        <div class="fluxo aparece" aria-label="Exemplo de fluxo: pedido, registro, aviso no WhatsApp, planilha atualizada">
+          <div class="fluxo__no"><span class="fluxo__icone">🛒</span><b>Cliente faz um pedido</b></div>
+          <div class="fluxo__fio"><i></i></div>
+          <div class="fluxo__no"><span class="fluxo__icone">🗂️</span><b>O sistema registra</b></div>
+          <div class="fluxo__fio"><i></i></div>
+          <div class="fluxo__no"><span class="fluxo__icone">💬</span><b>WhatsApp avisa o cliente</b></div>
+          <div class="fluxo__fio"><i></i></div>
+          <div class="fluxo__no"><span class="fluxo__icone">📊</span><b>Planilha se atualiza</b></div>
+        </div>
+        <p class="fluxo__nota">Ilustração de exemplo. Cada projeto é montado de acordo com a sua rotina.</p>
+      </div>
+    </section>
+
+    <!-- ============ 4. COMO TRABALHAMOS ============ -->
+    <section class="secao" id="como-trabalhamos">
+      <div class="container">
+        <p class="secao__marca">// 03</p>
+        <h2 class="aparece">Como trabalhamos</h2>
+        <p class="secao__intro aparece">Um processo simples, em três passos.</p>
+
+        <ol class="passos">
+          <li class="passo aparece">
+            <span class="passo__numero">1</span>
+            <h3>Conversa</h3>
+            <p>Você conta o que precisa. Ouvimos com atenção e tiramos suas dúvidas, sem pressa.</p>
+          </li>
+          <li class="passo aparece">
+            <span class="passo__numero">2</span>
+            <h3>Proposta</h3>
+            <p>Explicamos o que será feito, em quanto tempo e quanto custa, tudo combinado antes de começar.</p>
+          </li>
+          <li class="passo aparece">
+            <span class="passo__numero">3</span>
+            <h3>Entrega</h3>
+            <p>Construímos, mostramos o resultado, ajustamos o que for preciso e entregamos funcionando.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 5. POR QUE A WESTSYSTEM ============ -->
+    <section class="secao secao--painel" id="porque">
+      <div class="container">
+        <p class="secao__marca">// 04</p>
+        <h2 class="aparece">Por que a WestSystem</h2>
+
+        <div class="motivos">
+          <div class="motivo aparece">
+            <h3>Linguagem de gente</h3>
+            <p>Explicamos tudo de forma simples. Se você não entendeu, a culpa é nossa, não sua.</p>
+          </div>
+          <div class="motivo aparece">
+            <h3>Feito para você</h3>
+            <p>Nada de modelo pronto igual ao de todo mundo. Cada solução parte do seu negócio.</p>
+          </div>
+          <div class="motivo aparece">
+            <h3>Combinado é combinado</h3>
+            <p>Prazo e valor definidos antes de começar. Sem surpresa no meio do caminho.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. PERGUNTAS FREQUENTES ============ -->
+    <section class="secao" id="perguntas">
+      <div class="container container--estreito">
+        <p class="secao__marca">// 05</p>
+        <h2 class="aparece">Perguntas frequentes</h2>
+
+        <details class="pergunta aparece">
+          <summary>Preciso entender de tecnologia?</summary>
+          <p>Não. Você só precisa explicar o que quer resolver. A parte técnica fica com a gente, e explicamos tudo em palavras simples.</p>
+        </details>
+
+        <details class="pergunta aparece">
+          <summary>Quanto custa?</summary>
+          <p>Depende do que você precisa. Por isso conversamos primeiro e depois enviamos uma proposta com o valor fechado. A conversa não tem custo.</p>
+        </details>
+
+        <details class="pergunta aparece">
+          <summary>Quanto tempo leva?</summary>
+          <p>Varia conforme o tamanho do trabalho. Um site simples é bem mais rápido do que um sistema completo. O prazo vem combinado na proposta.</p>
+        </details>
+
+        <details class="pergunta aparece">
+          <summary>Sou uma pessoa só, não uma empresa grande. Vocês atendem?</summary>
+          <p>Sim. Atendemos de autônomos a pequenos negócios e qualquer pessoa que tenha uma ideia para tirar do papel.</p>
+        </details>
+
+        <details class="pergunta aparece">
+          <summary>Tenho uma ideia, mas não sei se dá para fazer.</summary>
+          <p>Mande uma mensagem e conte a ideia. Dizemos com honestidade se dá, como seria e se vale a pena.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ 7. CHAMADA FINAL ============ -->
+    <section class="final" id="contato">
+      <div class="container final__conteudo">
+        <h2 class="aparece">Vamos conversar sobre o seu projeto?</h2>
+        <p class="aparece">Mande uma mensagem e conte o que você precisa. A gente responde e explica os próximos passos.</p>
+        <a href="#" class="botao botao--grande botao--pulsa js-whatsapp">Chamar no WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape">
+    <div class="container rodape__conteudo">
+      <a href="#inicio" class="logo logo--rodape" aria-label="WestSystem, voltar ao início">
+        <span class="logo__texto">West<strong>System</strong></span>
+      </a>
+      <p>Sites, automações, sistemas e bots sob medida.</p>
+      <p class="rodape__direitos">© <span id="ano">2026</span> WestSystem. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão de voltar ao topo (aparece depois de rolar um pouco) -->
+  <button type="button" class="voltar-topo" id="voltar-topo" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- Botão flutuante do WhatsApp (o link é preenchido pelo script.js) -->
+  <a href="#" class="whatsapp-flutuante js-whatsapp" aria-label="Falar com a WestSystem no WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16.003 3C8.83 3 3 8.83 3 16c0 2.3.6 4.54 1.75 6.52L3 29l6.64-1.72A12.94 12.94 0 0 0 16 29c7.17 0 13-5.83 13-13S23.17 3 16.003 3zm0 23.7c-1.95 0-3.86-.53-5.53-1.52l-.4-.24-3.94 1.02 1.05-3.84-.26-.4A10.7 10.7 0 0 1 5.3 16C5.3 10.1 10.1 5.3 16 5.3S26.7 10.1 26.7 16 21.9 26.7 16.003 26.7zm5.87-7.99c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.26-.19.21-.37.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.5.14-.66.14-.14.32-.37.48-.56.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.85.4-.29.32-1.12 1.1-1.12 2.68s1.15 3.11 1.31 3.32c.16.21 2.27 3.46 5.5 4.85.77.33 1.37.53 1.84.68.77.24 1.47.21 2.03.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37z"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
