@@ -18,7 +18,11 @@ const linkWhatsapp =
 
 // Todo botão com a classe "js-whatsapp" passa a abrir a conversa.
 document.querySelectorAll(".js-whatsapp").forEach(function (botao) {
-  botao.href = linkWhatsapp;
+  // Se o link tiver "data-mensagem", usa essa mensagem em vez da padrão (ex.: suporte, orçamento).
+  const mensagemDoLink = botao.dataset.mensagem;
+  botao.href = mensagemDoLink
+    ? "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(mensagemDoLink)
+    : linkWhatsapp;
   botao.target = "_blank";
   botao.rel = "noopener";
 });

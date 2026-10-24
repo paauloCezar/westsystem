@@ -682,12 +682,55 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; }
   background: var(--fundo);
   border-top: 1px solid var(--linha);
   color: var(--texto-suave);
-  padding: 40px 0;
-  text-align: center;
-  font-size: .95rem;
+  padding: 64px 0 28px;
+  font-size: .96rem;
 }
-.rodape__conteudo { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.rodape__direitos { font-size: .85rem; opacity: .7; }
+.rodape__grade {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 40px;
+}
+.rodape__marca p { margin-top: 16px; max-width: 320px; line-height: 1.6; }
+.logo--rodape .logo__texto { color: var(--texto); }
+
+.rodape__coluna h3 {
+  color: var(--texto);
+  font-size: .85rem;
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.rodape__coluna ul { list-style: none; display: grid; gap: 10px; }
+.rodape__coluna a { transition: color .15s; }
+.rodape__coluna a:hover { color: var(--ciano); }
+.rodape__coluna a:focus-visible,
+.rodape__topo:focus-visible { outline: 2px solid var(--ciano); outline-offset: 3px; border-radius: 4px; }
+
+.rodape__base {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--linha);
+}
+.rodape__direitos { font-size: .85rem; opacity: .75; }
+.rodape__topo { font-size: .88rem; transition: color .15s; }
+.rodape__topo:hover { color: var(--ciano); }
+
+@media (max-width: 880px) {
+  .rodape__grade { grid-template-columns: 1fr 1fr; }
+  .rodape__marca { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .rodape { padding-top: 48px; }
+  .rodape__grade { grid-template-columns: 1fr; gap: 32px; }
+  .rodape__base { flex-direction: column; align-items: flex-start; }
+}
 
 /* ============================================================
    BOTÃO FLUTUANTE DO WHATSAPP (sempre visível no canto da tela)
