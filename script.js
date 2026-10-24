@@ -163,62 +163,6 @@ if (ehComputador) {
     palco.style.setProperty("--inclina-x", "0deg");
     palco.style.setProperty("--inclina-y", "0deg");
   });
-
-  // ---------- Celular com conversa ----------
-  const chat = document.getElementById("chat");
-  const celular = document.querySelector(".celular");
-
-  const conversa = [
-    { de: "cliente", texto: "Oi! Vocês fazem site para loja?" },
-    { de: "bot",     texto: "Olá! Fazemos sim 😊 Qual é o seu tipo de negócio?" },
-    { de: "cliente", texto: "Tenho uma loja de roupas." },
-    { de: "bot",     texto: "Perfeito! Já avisei a equipe, e logo alguém te chama para conversar." }
-  ];
-
-  function esperar(ms) {
-    return new Promise(function (resolver) { setTimeout(resolver, ms); });
-  }
-
-  function novaMensagem(de, texto) {
-    const msg = document.createElement("div");
-    msg.className = "msg msg--" + de;
-    msg.textContent = texto;
-    chat.appendChild(msg);
-    return msg;
-  }
-
-  // "rodada" serve para cancelar a conversa antiga quando ela sai da tela
-  let rodada = 0;
-
-  async function tocarConversa(minhaRodada) {
-    while (minhaRodada === rodada) {
-      chat.innerHTML = "";
-      await esperar(700);
-      for (const m of conversa) {
-        if (minhaRodada !== rodada) { return; }
-        if (m.de === "bot") {
-          const digitando = document.createElement("div");
-          digitando.className = "msg msg--bot msg--digitando";
-          digitando.innerHTML = "<i></i><i></i><i></i>";
-          chat.appendChild(digitando);
-          await esperar(1200);
-          digitando.remove();
-        } else {
-          await esperar(600);
-        }
-        if (minhaRodada !== rodada) { return; }
-        novaMensagem(m.de, m.texto);
-        await esperar(1400);
-      }
-      await esperar(4000); // pausa antes de recomeçar
-    }
-  }
-
-  // Começa quando o celular aparece na tela e para quando sai (não gasta à toa).
-  new IntersectionObserver(function (entradas) {
-    rodada++;
-    if (entradas[0].isIntersecting) { tocarConversa(rodada); }
-  }, { threshold: 0.4 }).observe(celular);
 }
 
 // ---------- 2. Ano do rodapé ----------
