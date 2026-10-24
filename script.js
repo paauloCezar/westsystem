@@ -1,16 +1,12 @@
 // ============================================================
 // WestSystem - script
+// (as configurações do WhatsApp estão em config.js)
 // 1. WhatsApp   2. Ano do rodapé   3. Barra de progresso da página
 // 4. Aparecer ao rolar   5. Painel de exemplo (barras e registro)
 // ============================================================
 
 // ---------- 1. WhatsApp ----------
-// >>> Para trocar o número do WhatsApp, mude só aqui <<<
-// Formato: 55 + DDD + número, sem espaços, traços ou parênteses.
-const WHATSAPP_NUMERO = "5541996877013";
-
-// Mensagem que já aparece escrita quando a pessoa abre a conversa.
-const WHATSAPP_MENSAGEM = "Olá! Vim pelo site da WestSystem e gostaria de conversar sobre um projeto.";
+// O número e a mensagem padrão ficam no arquivo config.js
 
 // Monta o link (o texto precisa ser "codificado" para caber em um endereço).
 const linkWhatsapp =

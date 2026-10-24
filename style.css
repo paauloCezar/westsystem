@@ -719,6 +719,12 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; }
   border-top: 1px solid var(--linha);
 }
 .rodape__direitos { font-size: .85rem; opacity: .75; }
+.rodape__horario { margin-top: 18px; font-size: .9rem; line-height: 1.6; }
+.rodape__horario b { color: var(--texto); font-weight: 600; }
+.rodape__legal { display: flex; gap: 22px; flex-wrap: wrap; font-size: .88rem; }
+.rodape__legal a { transition: color .15s; }
+.rodape__legal a:hover { color: var(--ciano); }
+.rodape__legal a:focus-visible { outline: 2px solid var(--ciano); outline-offset: 3px; border-radius: 4px; }
 .rodape__topo { font-size: .88rem; transition: color .15s; }
 .rodape__topo:hover { color: var(--ciano); }
 
@@ -912,3 +918,46 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; }
   .js .aparece { opacity: 1; transform: none; }
   .cartao__barra { width: 100%; }
 }
+
+
+/* ============================================================
+   PÁGINAS DE DOCUMENTO (Termos de uso e Política de privacidade)
+   ============================================================ */
+.topo__voltar { color: var(--texto-suave); font-size: .95rem; transition: color .15s; }
+.topo__voltar:hover { color: var(--ciano); }
+
+.documento { max-width: 780px; margin: 0 auto; padding: 64px 20px 96px; }
+.documento__marca { font-family: var(--mono); color: var(--ciano); font-size: .85rem; margin-bottom: 10px; }
+.documento h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; }
+.documento__data { margin-top: 12px; color: var(--texto-suave); font-family: var(--mono); font-size: .85rem; }
+.documento__intro { margin-top: 28px; font-size: 1.1rem; color: var(--texto); }
+
+.documento h2 {
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--linha);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+.documento h3 { margin-top: 24px; font-size: 1.05rem; color: var(--texto); }
+.documento p, .documento li { color: var(--texto-suave); line-height: 1.75; }
+.documento p { margin-top: 14px; }
+.documento ul { margin: 14px 0 0 22px; display: grid; gap: 8px; }
+.documento li::marker { color: var(--ciano); }
+.documento strong { color: var(--texto); font-weight: 600; }
+.documento a { color: var(--ciano); text-decoration: underline; text-underline-offset: 3px; }
+.documento a:hover { color: #fff; }
+
+.documento__resumo {
+  margin-top: 28px;
+  padding: 20px 22px;
+  background: var(--painel);
+  border: 1px solid var(--linha-forte);
+  border-left: 3px solid var(--ciano);
+  border-radius: 12px;
+}
+.documento__resumo p:first-child { margin-top: 0; }
+.documento__resumo ul { margin-top: 10px; }
+
+.rodape--simples { padding: 28px 0; }
+.rodape--simples .rodape__base { margin-top: 0; padding-top: 0; border-top: 0; }
