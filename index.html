@@ -21,8 +21,8 @@
     <div class="container topo__barra">
       <a href="#inicio" class="logo" aria-label="WestSystem, voltar ao início">
         <svg class="logo__marca" viewBox="0 0 32 32" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="url(#grad)"/>
-          <path d="M6 9l4.5 14L16 13l5.5 10L26 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="1" y="1" width="30" height="30" rx="8" fill="#0c1322" stroke="url(#grad)" stroke-width="2"/>
+          <path d="M5 9l6 14 6-14" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 9l6 14 6-14" fill="none" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           <defs>
             <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#3b82f6"/>
@@ -107,48 +107,79 @@
         <h2 class="aparece">O que fazemos</h2>
         <p class="secao__intro aparece">Se você tem uma ideia ou um problema que toma o seu tempo, é provável que a gente consiga resolver.</p>
 
-        <div class="cartoes">
-          <article class="cartao aparece">
-            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🌐</span><span class="led"></span></div>
-            <h3>Sites</h3>
-            <p>Páginas bonitas e rápidas, que funcionam bem no celular e apresentam o seu negócio para o mundo.</p>
-            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+        <!-- Carrossel: arraste com o dedo, use as setas ou os pontinhos -->
+        <div class="carrossel aparece" id="carrossel">
+          <div class="carrossel__faixa" id="faixa" tabindex="0" role="region" aria-label="Nossos serviços (role para o lado)">
+          <article class="cartao">
+            <img class="cartao__imagem" src="images/servico-sites.svg" alt="Ilustração de um site no computador e no celular" width="640" height="400" loading="lazy">
+            <div class="cartao__corpo">
+              <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🌐</span><span class="led"></span></div>
+              <h3>Sites</h3>
+              <p>Páginas bonitas e rápidas, que funcionam bem no celular e apresentam o seu negócio para o mundo.</p>
+              <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+            </div>
           </article>
 
-          <article class="cartao aparece">
-            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">⚙️</span><span class="led"></span></div>
-            <h3>Automações</h3>
-            <p>Tarefas repetitivas que passam a se fazer sozinhas: mensagens, planilhas, avisos e cadastros.</p>
-            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          <article class="cartao">
+            <img class="cartao__imagem" src="images/servico-automacoes.svg" alt="Ilustração de uma engrenagem ligada a tarefas concluídas" width="640" height="400" loading="lazy">
+            <div class="cartao__corpo">
+              <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">⚙️</span><span class="led"></span></div>
+              <h3>Automações</h3>
+              <p>Tarefas repetitivas que passam a se fazer sozinhas: mensagens, planilhas, avisos e cadastros.</p>
+              <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+            </div>
           </article>
 
-          <article class="cartao aparece">
-            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🧩</span><span class="led"></span></div>
-            <h3>Sistemas sob medida</h3>
-            <p>Um programa feito para o seu jeito de trabalhar, em vez de você se adaptar a um que não serve direito.</p>
-            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          <article class="cartao">
+            <img class="cartao__imagem" src="images/servico-sistemas.svg" alt="Ilustração de um painel de sistema com gráficos" width="640" height="400" loading="lazy">
+            <div class="cartao__corpo">
+              <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🧩</span><span class="led"></span></div>
+              <h3>Sistemas sob medida</h3>
+              <p>Um programa feito para o seu jeito de trabalhar, em vez de você se adaptar a um que não serve direito.</p>
+              <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+            </div>
           </article>
 
-          <article class="cartao aparece">
-            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🤖</span><span class="led"></span></div>
-            <h3>Bots</h3>
-            <p>Assistentes que atendem e respondem seus clientes automaticamente, a qualquer hora.</p>
-            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          <article class="cartao">
+            <img class="cartao__imagem" src="images/servico-bots.svg" alt="Ilustração de um robô conversando em um chat" width="640" height="400" loading="lazy">
+            <div class="cartao__corpo">
+              <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🤖</span><span class="led"></span></div>
+              <h3>Bots</h3>
+              <p>Assistentes que atendem e respondem seus clientes automaticamente, a qualquer hora.</p>
+              <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+            </div>
           </article>
 
-          <article class="cartao aparece">
-            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🎯</span><span class="led"></span></div>
-            <h3>Precisão</h3>
-            <p>Cada detalhe é conferido e testado antes da entrega, para tudo funcionar certo desde o primeiro dia.</p>
-            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          <article class="cartao">
+            <img class="cartao__imagem" src="images/servico-precisao.svg" alt="Ilustração de um alvo com uma flecha no centro" width="640" height="400" loading="lazy">
+            <div class="cartao__corpo">
+              <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">🎯</span><span class="led"></span></div>
+              <h3>Precisão</h3>
+              <p>Cada detalhe é conferido e testado antes da entrega, para tudo funcionar certo desde o primeiro dia.</p>
+              <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+            </div>
           </article>
 
-          <article class="cartao cartao--outros aparece">
-            <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">💡</span><span class="led led--ambar"></span></div>
-            <h3>E outras ideias</h3>
-            <p>Não achou o que procura? Conte o que você precisa e vemos juntos se dá para fazer.</p>
-            <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+          <article class="cartao cartao--outros">
+            <img class="cartao__imagem" src="images/servico-ideias.svg" alt="Ilustração de uma lâmpada acesa com brilhos" width="640" height="400" loading="lazy">
+            <div class="cartao__corpo">
+              <div class="cartao__topo"><span class="cartao__icone" aria-hidden="true">💡</span><span class="led led--ambar"></span></div>
+              <h3>E outras ideias</h3>
+              <p>Não achou o que procura? Conte o que você precisa e vemos juntos se dá para fazer.</p>
+              <div class="cartao__trilho"><div class="cartao__barra"></div></div>
+            </div>
           </article>
+          </div>
+
+          <div class="carrossel__controles">
+            <button type="button" class="carrossel__seta" id="seta-anterior" aria-label="Serviço anterior">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <div class="carrossel__pontos" id="pontos"></div>
+            <button type="button" class="carrossel__seta" id="seta-proximo" aria-label="Próximo serviço">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>

@@ -52,6 +52,65 @@ formFeedback.addEventListener("submit", function (evento) {
   window.open(link, "_blank", "noopener");
 });
 
+// ---------- Carrossel de serviços ----------
+const faixa = document.getElementById("faixa");
+const setaAnterior = document.getElementById("seta-anterior");
+const setaProximo = document.getElementById("seta-proximo");
+const pontos = document.getElementById("pontos");
+const cartoesCarrossel = faixa.children;
+
+// distância de um cartão até o próximo (largura + espaço entre eles)
+function passoDoCarrossel() {
+  return cartoesCarrossel[1].offsetLeft - cartoesCarrossel[0].offsetLeft;
+}
+
+// quantos "pontinhos" existem (quantas posições diferentes dá para parar)
+function totalDePosicoes() {
+  const aparecem = Math.max(1, Math.floor((faixa.clientWidth + 1) / passoDoCarrossel()));
+  return Math.max(1, cartoesCarrossel.length - aparecem + 1);
+}
+
+function posicaoAtual() {
+  const indice = Math.round(faixa.scrollLeft / passoDoCarrossel());
+  return Math.min(indice, totalDePosicoes() - 1);
+}
+
+function irPara(indice) {
+  faixa.scrollTo({ left: indice * passoDoCarrossel(), behavior: menosMovimento ? "auto" : "smooth" });
+}
+
+// cria os pontinhos de novo (o número muda conforme o tamanho da tela)
+function montarPontos() {
+  pontos.innerHTML = "";
+  const total = totalDePosicoes();
+  for (let i = 0; i < total; i++) {
+    const ponto = document.createElement("button");
+    ponto.type = "button";
+    ponto.className = "carrossel__ponto";
+    ponto.setAttribute("aria-label", "Ir para o serviço " + (i + 1));
+    ponto.addEventListener("click", function () { irPara(i); });
+    pontos.appendChild(ponto);
+  }
+  atualizarCarrossel();
+}
+
+// marca o ponto ativo e liga/desliga as setas nas pontas
+function atualizarCarrossel() {
+  const atual = posicaoAtual();
+  const total = totalDePosicoes();
+  Array.prototype.forEach.call(pontos.children, function (ponto, i) {
+    ponto.setAttribute("aria-current", i === atual ? "true" : "false");
+  });
+  setaAnterior.disabled = atual <= 0;
+  setaProximo.disabled = atual >= total - 1;
+}
+
+setaAnterior.addEventListener("click", function () { irPara(posicaoAtual() - 1); });
+setaProximo.addEventListener("click", function () { irPara(posicaoAtual() + 1); });
+faixa.addEventListener("scroll", atualizarCarrossel, { passive: true });
+window.addEventListener("resize", montarPontos);
+montarPontos();
+
 // ---------- 2. Ano do rodapé ----------
 document.getElementById("ano").textContent = new Date().getFullYear();
 
