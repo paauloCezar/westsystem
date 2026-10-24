@@ -23,6 +23,9 @@ document.querySelectorAll(".js-whatsapp").forEach(function (botao) {
   botao.rel = "noopener";
 });
 
+// Pessoas que pediram "menos movimento" no celular/computador
+const menosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 // ---------- Formulário de feedback ----------
 // Monta a mensagem e abre o WhatsApp com tudo preenchido.
 const formFeedback = document.getElementById("form-feedback");
@@ -111,11 +114,115 @@ faixa.addEventListener("scroll", atualizarCarrossel, { passive: true });
 window.addEventListener("resize", montarPontos);
 montarPontos();
 
+// ============================================================
+// EFEITOS SÓ PARA COMPUTADOR
+// Só rodam em tela grande, com mouse, e para quem não pediu "menos movimento".
+// No celular e no tablet nada disso é ligado.
+// ============================================================
+const ehComputador =
+  window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)").matches && !menosMovimento;
+
+if (ehComputador) {
+
+  // ---------- Títulos palavra por palavra ----------
+  // Troca o texto do título por uma <span> para cada palavra; o CSS faz cada uma subir de uma vez.
+  document.querySelectorAll(".secao h2.aparece, .final h2.aparece").forEach(function (titulo) {
+    const palavras = titulo.textContent.trim().split(/\s+/);
+    titulo.setAttribute("aria-label", titulo.textContent.trim()); // leitor de tela lê o título inteiro
+    titulo.textContent = "";
+    palavras.forEach(function (palavra, i) {
+      const fora = document.createElement("span");
+      fora.className = "palavra";
+      fora.setAttribute("aria-hidden", "true");
+      const dentro = document.createElement("span");
+      dentro.className = "palavra__in";
+      dentro.style.setProperty("--i", i); // atraso de cada palavra
+      dentro.textContent = palavra;
+      fora.appendChild(dentro);
+      titulo.appendChild(fora);
+      if (i < palavras.length - 1) { titulo.appendChild(document.createTextNode(" ")); }
+    });
+    titulo.classList.add("palavras");
+  });
+
+  // ---------- Painel do topo que inclina com o mouse ----------
+  const palco = document.getElementById("painel-palco");
+  const areaHero = document.getElementById("inicio");
+  const INCLINACAO_MAXIMA = 8; // graus
+
+  areaHero.addEventListener("mousemove", function (e) {
+    const caixa = palco.getBoundingClientRect();
+    // posição do mouse em relação ao centro do painel, de -1 (esquerda/cima) a 1 (direita/baixo)
+    const x = (e.clientX - (caixa.left + caixa.width / 2)) / (window.innerWidth / 2);
+    const y = (e.clientY - (caixa.top + caixa.height / 2)) / (window.innerHeight / 2);
+    const limitar = function (n) { return Math.max(-1, Math.min(1, n)); };
+    palco.style.setProperty("--inclina-y", (limitar(x) * INCLINACAO_MAXIMA).toFixed(2) + "deg");
+    palco.style.setProperty("--inclina-x", (limitar(-y) * INCLINACAO_MAXIMA).toFixed(2) + "deg");
+  });
+  areaHero.addEventListener("mouseleave", function () {
+    palco.style.setProperty("--inclina-x", "0deg");
+    palco.style.setProperty("--inclina-y", "0deg");
+  });
+
+  // ---------- Celular com conversa ----------
+  const chat = document.getElementById("chat");
+  const celular = document.querySelector(".celular");
+
+  const conversa = [
+    { de: "cliente", texto: "Oi! Vocês fazem site para loja?" },
+    { de: "bot",     texto: "Olá! Fazemos sim 😊 Qual é o seu tipo de negócio?" },
+    { de: "cliente", texto: "Tenho uma loja de roupas." },
+    { de: "bot",     texto: "Perfeito! Já avisei a equipe, e logo alguém te chama para conversar." }
+  ];
+
+  function esperar(ms) {
+    return new Promise(function (resolver) { setTimeout(resolver, ms); });
+  }
+
+  function novaMensagem(de, texto) {
+    const msg = document.createElement("div");
+    msg.className = "msg msg--" + de;
+    msg.textContent = texto;
+    chat.appendChild(msg);
+    return msg;
+  }
+
+  // "rodada" serve para cancelar a conversa antiga quando ela sai da tela
+  let rodada = 0;
+
+  async function tocarConversa(minhaRodada) {
+    while (minhaRodada === rodada) {
+      chat.innerHTML = "";
+      await esperar(700);
+      for (const m of conversa) {
+        if (minhaRodada !== rodada) { return; }
+        if (m.de === "bot") {
+          const digitando = document.createElement("div");
+          digitando.className = "msg msg--bot msg--digitando";
+          digitando.innerHTML = "<i></i><i></i><i></i>";
+          chat.appendChild(digitando);
+          await esperar(1200);
+          digitando.remove();
+        } else {
+          await esperar(600);
+        }
+        if (minhaRodada !== rodada) { return; }
+        novaMensagem(m.de, m.texto);
+        await esperar(1400);
+      }
+      await esperar(4000); // pausa antes de recomeçar
+    }
+  }
+
+  // Começa quando o celular aparece na tela e para quando sai (não gasta à toa).
+  new IntersectionObserver(function (entradas) {
+    rodada++;
+    if (entradas[0].isIntersecting) { tocarConversa(rodada); }
+  }, { threshold: 0.4 }).observe(celular);
+}
+
 // ---------- 2. Ano do rodapé ----------
 document.getElementById("ano").textContent = new Date().getFullYear();
-
-// Pessoas que pediram "menos movimento" no celular/computador
-const menosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ---------- Menu do celular (botão de 3 riscos) ----------
 const botaoMenu = document.getElementById("menu-botao");

@@ -72,30 +72,32 @@
         </div>
 
         <!-- Painel de exemplo: as barras e o registro se mexem sozinhos (script.js) -->
-        <aside class="painel" aria-label="Exemplo visual de um sistema funcionando">
-          <div class="painel__topo">
-            <span class="painel__bolinhas"><i></i><i></i><i></i></span>
-            <span class="painel__titulo">painel de exemplo</span>
-            <span class="painel__status"><span class="led"></span> no ar</span>
-          </div>
+        <div class="painel-palco" id="painel-palco">
+          <aside class="painel" aria-label="Exemplo visual de um sistema funcionando">
+            <div class="painel__topo">
+              <span class="painel__bolinhas"><i></i><i></i><i></i></span>
+              <span class="painel__titulo">painel de exemplo</span>
+              <span class="painel__status"><span class="led"></span> no ar</span>
+            </div>
 
-          <div class="painel__metricas">
-            <div class="metrica">
-              <div class="metrica__linha"><span>Atendimentos</span><b id="valor-1">72%</b></div>
-              <div class="metrica__trilho"><div class="metrica__barra" id="barra-1"></div></div>
+            <div class="painel__metricas">
+              <div class="metrica">
+                <div class="metrica__linha"><span>Atendimentos</span><b id="valor-1">72%</b></div>
+                <div class="metrica__trilho"><div class="metrica__barra" id="barra-1"></div></div>
+              </div>
+              <div class="metrica">
+                <div class="metrica__linha"><span>Tarefas automáticas</span><b id="valor-2">58%</b></div>
+                <div class="metrica__trilho"><div class="metrica__barra" id="barra-2"></div></div>
+              </div>
+              <div class="metrica">
+                <div class="metrica__linha"><span>Tempo economizado</span><b id="valor-3">86%</b></div>
+                <div class="metrica__trilho"><div class="metrica__barra" id="barra-3"></div></div>
+              </div>
             </div>
-            <div class="metrica">
-              <div class="metrica__linha"><span>Tarefas automáticas</span><b id="valor-2">58%</b></div>
-              <div class="metrica__trilho"><div class="metrica__barra" id="barra-2"></div></div>
-            </div>
-            <div class="metrica">
-              <div class="metrica__linha"><span>Tempo economizado</span><b id="valor-3">86%</b></div>
-              <div class="metrica__trilho"><div class="metrica__barra" id="barra-3"></div></div>
-            </div>
-          </div>
 
-          <ul class="painel__log" id="log" aria-live="off"></ul>
-        </aside>
+            <ul class="painel__log" id="log" aria-live="off"></ul>
+          </aside>
+        </div>
 
       </div>
     </section>
@@ -201,6 +203,26 @@
           <div class="fluxo__no"><span class="fluxo__icone">📊</span><b>Planilha se atualiza</b></div>
         </div>
         <p class="fluxo__nota">Ilustração de exemplo. Cada projeto é montado de acordo com a sua rotina.</p>
+
+        <!-- Só aparece no computador (veja .so-desktop no CSS). A conversa é tocada pelo script.js -->
+        <div class="conversa so-desktop aparece">
+          <div class="conversa__texto">
+            <h3>E quando o cliente chama fora do horário?</h3>
+            <p>Um bot pode responder na hora, entender o que a pessoa quer e avisar você. Ninguém fica esperando e nenhum cliente se perde.</p>
+            <p class="conversa__nota">Conversa de exemplo, só para ilustrar.</p>
+          </div>
+
+          <div class="celular" aria-hidden="true">
+            <div class="celular__entalhe"></div>
+            <div class="celular__tela">
+              <div class="celular__topo">
+                <span class="celular__avatar">W</span>
+                <span><b>Atendimento</b><small><span class="led"></span> online</small></span>
+              </div>
+              <div class="celular__chat" id="chat"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
